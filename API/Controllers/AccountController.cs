@@ -23,11 +23,12 @@ namespace API.Controllers
                 var register = _accountRepository.Register(accountVM);
                 if (register > 0)
                 {
+                    var data = _accountRepository.lastInsertedEmpData();
                     return Ok(new
                     {
                         status = StatusCodes.Status200OK,
                         message = "Data Berhasil Dimasukkan",
-                        data = (object)true,
+                        data = (object)data,
                     });
                 }
                 return BadRequest(new

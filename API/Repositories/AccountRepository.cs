@@ -97,13 +97,34 @@ namespace API.Repositories
 
             //account.Password = "12345";
 
-            var pass = "12345"
+            var pass = "12345";
             var generateSalt = BCrypt.Net.BCrypt.GenerateSalt(13);
             account.Password = BCrypt.Net.BCrypt.HashPassword(pass, generateSalt);
 
             _context.Accounts.Add(account);
 
             return _context.SaveChanges();
+        }
+
+        public empDataVM lastInsertedEmpData()
+        {
+            var lastInserted = _context.Employees
+                .Include(d => d.Department)
+                .Include(a => a.Account)
+                .OrderByDescending(x => x.Employee_Id)
+                .FirstOrDefault();
+            if(lastInserted == null)
+            {
+                return null;
+            }
+            return new empDataVM
+            {
+                NIK = lastInserted.Employee_Id,
+                Email = lastInserted.Email,
+                FullName = $"{lastInserted.FirstName} {lastInserted.LastName}",
+                Username = lastInserted.Account.Username,
+                DeptName = lastInserted.Department.Dept_Name
+            };
         }
     }
 }

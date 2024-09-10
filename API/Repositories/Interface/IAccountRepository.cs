@@ -9,6 +9,7 @@ namespace API.Repositories.Interface
         IEnumerable<empDataVM> GetAllEmployeeData();
 
         bool Login(LoginVM loginVM);
+        empDataVM lastInsertedEmpData();
 
     }
 }
