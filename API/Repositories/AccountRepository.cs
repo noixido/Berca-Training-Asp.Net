@@ -96,7 +96,6 @@ namespace API.Repositories
             }
 
             //account.Password = "12345";
-
             var pass = "12345";
             var generateSalt = BCrypt.Net.BCrypt.GenerateSalt(13);
             account.Password = BCrypt.Net.BCrypt.HashPassword(pass, generateSalt);
