@@ -1,12 +1,14 @@
 ﻿using API.Models;
 using API.Repositories;
 using API.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class EmployeeController : Controller
     {
         private EmployeeRepository _employeeRepository;

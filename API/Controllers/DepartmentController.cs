@@ -1,5 +1,6 @@
 ﻿using API.Models;
 using API.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -7,6 +8,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class DepartmentController : Controller
     {
         private DepartmentRepository _departmentRepository;
