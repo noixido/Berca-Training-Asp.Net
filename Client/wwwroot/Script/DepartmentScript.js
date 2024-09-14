@@ -72,7 +72,7 @@ function editDepartment(id) {
 
 // fungsi untuk menghapus data melalui api menggunakan ajax
 function deleteDepartment(id) {
-    var confirmation = confirm("Apakah anda yaking ingin menghapus data ini?");
+    var confirmation = confirm("DeptID: "+id+", Apakah anda yakin ingin menghapus data ini?");
     if (confirmation) {
 
         $.ajax({
@@ -88,7 +88,7 @@ function deleteDepartment(id) {
             }
         });
     } else {
-        alert("Penghapusan data dibatalkan");
+        alert("DeptID: "+id+" batal dihapus");
     }
 }
 
