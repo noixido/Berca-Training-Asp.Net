@@ -121,7 +121,7 @@ namespace API.Controllers
             });
         }
 
-        [HttpDelete]
+        [HttpDelete("{deptId}")]
         public IActionResult DeleteDepartment(string? deptId)
         {
             int result = _departmentRepository.DeleteDepartment(deptId);

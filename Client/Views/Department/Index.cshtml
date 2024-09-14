@@ -14,7 +14,7 @@
 
         <div class="card-body">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-tooltip="tooltip" data-placement="right" title="Add Data Department">
+            <button type="button" class="btn btn-primary" id="modalButton" data-toggle="modal" data-target="#exampleModal" data-tooltip="tooltip" data-placement="right" title="Add Data Department">
                 <i class="fas fa-plus"></i>
             </button>
         </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="Save()" data-dismiss="modal" id="addDept">Add Department</button>
-                    <button type="button" class="btn btn-warning" data-dismiss="modal">Edit Department</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" id="editDept">Edit Department</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
