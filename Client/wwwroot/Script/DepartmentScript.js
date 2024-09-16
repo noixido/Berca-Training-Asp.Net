@@ -35,10 +35,10 @@
     });
 });
 
-// menampilkan tooltip di luar ajax
+// menampilkan tooltip
 $('[data-tooltip="tooltip"]').tooltip({ trigger: "hover" });
 
-// menampilkan tooltip di dalam ajax
+// menampilkan tooltip (ajax)
 $(document).ajaxComplete(function () {
     $('[data-tooltip="tooltip"]').tooltip({
         trigger: "hover",
@@ -70,11 +70,11 @@ function editDepartment(id) {
 
 }
 
+
 // fungsi untuk menghapus data melalui api menggunakan ajax
 function deleteDepartment(id) {
-    var confirmation = confirm("DeptID: "+id+", Apakah anda yakin ingin menghapus data ini?");
+    var confirmation = confirm("DeptID: " + id + ", Apakah anda yakin ingin menghapus data ini?");
     if (confirmation) {
-
         $.ajax({
             url: "https://localhost:7121/api/Department/" + id,
             type: "DELETE",
@@ -88,19 +88,35 @@ function deleteDepartment(id) {
             }
         });
     } else {
-        alert("DeptID: "+id+" batal dihapus");
+        alert("DeptID: " + id + " batal dihapus");
     }
 }
+
+// reset form setiap kali modal dibuka
+$('#exampleModal').on('hidden.bs.modal', function () {
+//$('#exampleModal').on('shown.bs.modal', function () {
+    //document.getElementById('deptForm').reset();
+    $("#deptForm").trigger('reset');
+});
+
+// focus ke deptInit saat modal dibuka
+$('#exampleModal').on('shown.bs.modal', function () {
+    $("#deptInit").focus();
+});
+
+// 2 code di bawah ini masih ada bug, kalo klik tombol edit di data paling bawah.. tombol add sama edit di modal malah muncul dua-duanya,
+// tapi kalo klik tombol edit di data pertama munculnya cuma tombol edit doang
 
 // saat tombol dengan id 'modalButton' diklik, tombol yang muncul pada modal hanya tombol tambah department (id 'addDept') saja
 document.getElementById('modalButton').addEventListener('click', () => {
     document.getElementById('addDept').style.display = 'block';
     document.getElementById('editDept').style.display = 'none';
 });
+
 // saat tombol dengan id 'editDeptButton' diklik, tombol yang muncul pada modal hanya tombol edit department (id 'editDept') saja (untuk ajax)
-$(document).ajaxComplete(function () {
-    document.getElementById('editDeptButton').addEventListener('click', () => {
-        document.getElementById('addDept').style.display = 'none';
-        document.getElementById('editDept').style.display = 'block';
-    });
+//$(document).ajaxComplete(function () {
+document.getElementById('editDeptButton').addEventListener('click', () => {
+    document.getElementById('addDept').style.display = 'none';
+    document.getElementById('editDept').style.display = 'block';
 });
+//});
