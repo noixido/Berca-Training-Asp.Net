@@ -24,14 +24,21 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Addons
+        Menu
     </div>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
+    <li class="nav-item" id="registerActivePage">
+        <a class="nav-link" asp-action="Index" asp-controller="Register">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span>
+            <span>Register</span>
+        </a>
+    </li>
+
+    <li class="nav-item" id="departmentActivePage">
+        <a class="nav-link" asp-action="Index" asp-controller="Department">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Departments</span>
         </a>
     </li>
 

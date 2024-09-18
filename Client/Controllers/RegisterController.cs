@@ -2,11 +2,11 @@
 
 namespace Client.Controllers
 {
-    public class DepartmentController : Controller
+    public class RegisterController : Controller
     {
         public IActionResult Index()
         {
-            ViewBag.data = "departmentActivePage";
+            ViewBag.data = "registerActivePage";
             return View();
         }
     }

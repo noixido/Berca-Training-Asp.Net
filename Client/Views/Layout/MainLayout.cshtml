@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Tables</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Custom fonts for this template -->
     <link href="~/sb-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
@@ -99,6 +100,15 @@
     <!-- Page level plugins -->
     <script src="~/sb-admin/vendor/datatables/jquery.datatables.min.js"></script>
     <script src="~/sb-admin/vendor/datatables/datatables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if ('@ViewBag.data' != null)
+            {
+               $('#' + '@ViewBag.data').addClass('active');
+            }
+        });
+    </script>
 
     @RenderSection("Script")
 
